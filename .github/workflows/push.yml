@@ -15,8 +15,8 @@ jobs:
       - run: pip install -r requirements.txt
       - run: playwright install chromium
       - run: gunicorn --daemon -k uvicorn.workers.UvicornWorker "main:app"
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
       - run: pytest -vv -n auto
