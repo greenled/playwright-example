@@ -17,4 +17,6 @@ jobs:
       - run: gunicorn --daemon -k uvicorn.workers.UvicornWorker "main:app"
       - name: Setup upterm session
         uses: lhotari/action-upterm@v1
+        with:
+          limit-access-to-actor: true
       - run: pytest -vv -n auto
